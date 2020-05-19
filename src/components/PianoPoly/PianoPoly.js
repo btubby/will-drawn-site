@@ -55,57 +55,38 @@ export default function PianoPoly() {
 
     document.addEventListener("keydown", (e) => {
       // e object has the key property to tell which key was pressed
-      switch (e.key) {
-        case "d":
-          // return synth.current.triggerAttack("C4")
-          return polySynth.current.triggerAttack(["C4", "E4", "G4", "B4"])
-
-        case "r":
-          return synth.current.triggerAttack("C#4")
-        case "f":
-          return synth.current.triggerAttack("D4")
-        case "t":
-          return synth.current.triggerAttack("D#4")
-        case "g":
-          return synth.current.triggerAttack("E4")
-        case "h":
-          return synth.current.triggerAttack("F4")
-        case "u":
-          return synth.current.triggerAttack("F#4")
-        case "j":
-          return synth.current.triggerAttack("G4")
-        case "i":
-          return synth.current.triggerAttack("G#4")
-        case "k":
-          return synth.current.triggerAttack("A4")
-        case "o":
-          return synth.current.triggerAttack("A#4")
-        case "l":
-          return synth.current.triggerAttack("B4")
-        default:
-          return
+      if (e.key === "d") {
+        return polySynth.current.triggerAttack(["C4", "E4", "G4", "B4"])
       }
+      if (e.key === "r") {
+        return synth.current.triggerAttack("C#4")
+      }
+      //   case "f":
+      //     return synth.current.triggerAttack("D4")
+      //   case "t":
+      //     return synth.current.triggerAttack("D#4")
+      //   case "g":
+      //     return synth.current.triggerAttack("E4")
+      //   case "h":
+      //     return synth.current.triggerAttack("F4")
+      //   case "u":
+      //     return synth.current.triggerAttack("F#4")
+      //   case "j":
+      //     return synth.current.triggerAttack("G4")
+      //   case "i":
+      //     return synth.current.triggerAttack("G#4")
+      //   case "k":
+      //     return synth.current.triggerAttack("A4")
+      //   case "o":
+      //     return synth.current.triggerAttack("A#4")
+      //   case "l":
+      //     return synth.current.triggerAttack("B4")
+      //   default:
+      //     return
     })
 
     // when the key is released, audio is released as well
-    document.addEventListener("keyup", (e) => {
-      switch (e.key) {
-        case "d":
-          polySynth.current.triggerRelease(["C4", "E4", "G4", "B4"])
-        case "r":
-        case "f":
-        case "t":
-        case "g":
-        case "h":
-        case "u":
-        case "j":
-        case "i":
-        case "k":
-        case "o":
-        case "l":
-          synth.current.triggerRelease()
-      }
-    })
+    document.addEventListener("keyup", (e) => {})
   })
 
   return (
@@ -114,7 +95,7 @@ export default function PianoPoly() {
         id="piano"
         onMouseDown={(e) => {
           // fires off a note continously until trigger is released
-          synth.current.triggerAttack(e.target.dataset.note)
+          // synth.current.triggerAttack(e.target.dataset.note)
         }}
         onMouseUp={(e) => {
           synth.current.triggerRelease()
@@ -161,7 +142,7 @@ export default function PianoPoly() {
       <Slider
         onChange={(event, newValue) => {
           console.log(`Slider change ${newValue}`)
-          setValue(newValue)
+          // setValue(newValue)
         }}
         defaultValue={0}
         // getAriaValueText={valuetext}

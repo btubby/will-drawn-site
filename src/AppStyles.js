@@ -1,10 +1,6 @@
 import styled from "styled-components"
 
-export const Main = styled.div`
-  border: 1px solid green;
-  width: 100%;
-  height: 100%;
-`
+export const Main = styled.div``
 export const Burger = styled.div`
   position: absolute;
   right: 3vw;

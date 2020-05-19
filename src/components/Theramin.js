@@ -1,10 +1,12 @@
-import React, { useRef, useEffect, useCallback, useState } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import * as Tone from "tone"
 import Slider from "@material-ui/core/Slider"
 
 import styled from "styled-components"
+import "typeface-roboto"
+// import { Typography } from "@material-ui/core"
 
-export const Title = styled.div`
+export const Typography = styled.div`
   position: absolute;
   right: 3vw;
   top: 3em;
@@ -81,7 +83,7 @@ export default function Theramin() {
       window.removeEventListener("mousedown", downListner, false)
       window.removeEventListener("mouseup", upListener, false)
     }
-  }, [])
+  })
 
   const calculateFrequency = function (mouseXPosition) {
     var minFrequency = 20,
@@ -95,16 +97,16 @@ export default function Theramin() {
 
   return (
     <>
-      <Title>Theramin.</Title>
+      <Typography variant="h1" component="h2">
+        Theramin.
+      </Typography>
       <div>
         <Slider
           onChange={(event, newValue) => {
             console.log(`theramin change ${newValue}`)
-            // @ts-ignore
             setValue(newValue)
           }}
           defaultValue={0}
-          // getAriaValueText={valuetext}
           aria-labelledby="discrete-slider-small-steps"
           step={0.1}
           marks

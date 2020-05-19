@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import AnimatedFigure from "../components/AnimatedFigure"
+import AnimatedFigure from "../../components/AnimatedFigure"
 
 const Figure = styled.div`
   position: absolute;

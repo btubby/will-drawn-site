@@ -1,6 +1,4 @@
 import React from "react"
-// @ts-ignore
-import styled from "styled-components"
 import AnimatedFigure from "../../components/AnimatedFigure"
 // @ts-ignore
 import Synth from "../../audio/synth.wav"
@@ -17,8 +15,6 @@ const URLBase = "http://www.tubbycreative.com/drawnwebsite/"
 export function Pyngyt() {
   return (
     <>
-      {/* // amanstill.png is alien man, top right // bman is birthday man top left
-      // ecm is Eat car man, bottom right // tank is a tank, mid left */}
       <Tank>
         <AnimatedFigure
           stillGifFrame={`${URLBase}tankstill.png`}
@@ -26,7 +22,6 @@ export function Pyngyt() {
           sample={Synth}
         />
       </Tank>
-
       <BirthdayMan>
         <AnimatedFigure
           stillGifFrame={`${URLBase}bmanstill.png`}
@@ -34,7 +29,6 @@ export function Pyngyt() {
           sample={Coco}
         />
       </BirthdayMan>
-
       <AlienMan>
         <AnimatedFigure
           stillGifFrame={`${URLBase}amanstill.png`}
@@ -42,7 +36,6 @@ export function Pyngyt() {
           sample={String}
         />
       </AlienMan>
-
       <EatCarMan>
         <AnimatedFigure
           stillGifFrame={`${URLBase}ecmstill.png`}

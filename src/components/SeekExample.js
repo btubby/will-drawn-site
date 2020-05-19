@@ -9,7 +9,6 @@ const track =
   "https://res.cloudinary.com/makingthings/video/upload/v1568881368/mp3/go_for_landing.mp3"
 
 export default function SeekExample() {
-  const [value, setValue] = useState(30)
   const [benRefDuration, setBenRefDuration] = useState()
   const benPlayerRef = useRef(null)
 
@@ -44,9 +43,9 @@ export default function SeekExample() {
           if (!!benPlayerRef.current.buffer.loaded) {
             console.log("buffer:`   " + benPlayerRef.current.buffer)
             setBenRefDuration(benPlayerRef.current.buffer.duration)
-            if (benPlayerRef.current.state == "started") {
+            if (benPlayerRef.current.state === "started") {
               benPlayerRef.current.stop()
-            } else if (benPlayerRef.current.state == "stopped") {
+            } else if (benPlayerRef.current.state === "stopped") {
               benPlayerRef.current.start()
             }
           }
@@ -58,7 +57,7 @@ export default function SeekExample() {
       <Slider
         onChange={(event, newValue) => {
           console.log(`Slider change ${newValue}`)
-          setValue(newValue)
+          // setValue(newValue)
           benPlayerRef.current.seek(newValue)
         }}
         defaultValue={0.00000005}
