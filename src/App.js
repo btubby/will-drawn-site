@@ -1,66 +1,42 @@
-import React, { useState } from "react"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-// import { styled } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
-import styled from "styled-components"
+import React from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import { Krambrodru } from "./components/Krambrodru"
-import { Pyngyt } from "./components/Pyngyt"
+import { Pyngyt } from "./pages/Pyngyt/Pyngyt"
+import { styles, Burger, Main } from "./AppStyles"
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const Nav = styled.div`
-  border: 1px solid red;
-`
-const Main = styled.div`
-  border: 1px solid green;
-`
+import { App as ToneReact } from "./pages/ToneReact"
+import { stack as Menu } from "react-burger-menu"
+import PianoHandDrawn from "./pages/PianoHandDrawn/PianoHandDrawn"
+import Theramin from "./components/Theramin"
+import SideBar from "./components/SideBar"
 
 function App() {
-  let [color, setColor] = useState("#282c34")
-
   return (
-    <>
-      <Router>
-        <Container>
-          <Nav>
-            <Link to="/">
-              <Button color="primary">Pyngyt</Button>
-            </Link>
-            <Link to="/Krambrodru/" onClick={() => setColor("#007bff")}>
-              <Button color="primary">Krambrodru</Button>
-            </Link>
-          </Nav>
+    <div id="App">
+      {/* <Burger>
+        <img
+          src={"http://www.tubbycreative.com/drawnwebsite/burgermenu.png"}
+          className="App-logo"
+          alt="logo"
+        />
+      </Burger> */}
+
+      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+
+      <main id="page-wrap">
+        <Router>
           <Main>
             <Route path="/" exact component={Pyngyt} />
             <Route path="/Krambrodru/" component={Krambrodru} />
+            <Route path="/tone/" component={ToneReact} />
+            <Route path="/theramin/" component={Theramin} />
+            <Route path="/keys/" component={PianoHandDrawn} />
           </Main>
-        </Container>
-      </Router>
-    </>
+        </Router>
+      </main>
+    </div>
   )
 }
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   )
-// }
 
 export default App

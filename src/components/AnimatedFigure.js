@@ -1,13 +1,10 @@
 import React from "react"
 import GifPlayer from "react-gif-player"
-import styled from "styled-components"
 import ReactHowler from "react-howler"
 import DefaultLoader from "../assets/loader.jpg"
 
 //https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.js
 import raf from "raf" // requestAnimationFrame polyfill
-
-const FigureContainer = styled.div``
 
 export default class AnimatedFigure extends React.Component {
   // on click, toggle the state of the animation AND the sound
@@ -55,7 +52,7 @@ export default class AnimatedFigure extends React.Component {
       this.GifPlayerHandlePlayToggle()
 
       // FIXME THIS SHOULD BE CONDITIONAL
-      if (this.props.playOnLoad == false) {
+      if (this.props.playOnLoad === false) {
         this.pauseGif()
       } else {
         // play the damn gif
@@ -72,6 +69,7 @@ export default class AnimatedFigure extends React.Component {
       playOnLoad = true,
       stillGifFrame,
       volume = 1,
+      sample = "http://goldfirestudios.com/proj/howlerjs/sound.ogg",
     } = this.props
 
     return this.state.loading ? (
@@ -81,10 +79,7 @@ export default class AnimatedFigure extends React.Component {
     ) : (
       <div>
         <ReactHowler
-          src={
-            this.props.sample ||
-            "http://goldfirestudios.com/proj/howlerjs/sound.ogg"
-          }
+          src={sample}
           playing={loop ? true : this.state.playing}
           volume={volume}
           mute={!this.state.playing}
