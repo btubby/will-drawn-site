@@ -127,7 +127,7 @@ export default function Synth() {
 
     // count 0-15 and then back to 0
     counter = (counter + 1) % 16
-    // console.log(counter)
+    console.log(counter)
   }
 
   // slider

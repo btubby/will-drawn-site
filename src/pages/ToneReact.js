@@ -27,7 +27,7 @@ export const App = () => {
   //   sampler2.current.triggerAttackRelease("G4", 0.5, 2)
   // }
   return (
-    <Container>
+    <Container maxWidth="sm">
       <PlayMP3 />
       <Arpeggio />
       <SeekExample />

@@ -26,6 +26,9 @@ export default (props) => {
         <a className="menu-item" href="/synth">
           SYNTH EXPERIMENTS
         </a>
+        <a className="menu-item" href="/trails">
+          Trails
+        </a>
       </Menu>
     </Container>
   )

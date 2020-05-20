@@ -22,7 +22,7 @@ export default class AnimatedFigure extends React.Component {
     this.setState({ sampleloading: false })
   }
   HowlerhandleOnEnd = () => {
-    console.log("sample ended")
+    // console.log("sample ended")
     if (!this.props.loop) {
       this.setState({ playing: false })
       console.log("gif pausing")

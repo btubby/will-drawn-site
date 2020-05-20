@@ -8,14 +8,13 @@ import { App as ToneReact } from "./pages/ToneReact"
 import PianoHandDrawn from "./pages/PianoHandDrawn/PianoHandDrawn"
 import Theramin from "./components/Theramin"
 
-import Burger from "./assets/burgermenu.png"
-// burger-menu
 import SideBar from "./components/SideBar"
 import "./components/burger-styles.css"
 
 import { useMediaQuery } from "react-responsive"
 import Synth from "./components/Synth/Synth"
 import styled from "styled-components"
+import Trails from "./components/Trails/Trails"
 
 const BurgerWrapper = styled.div`
   display: relative;
@@ -24,16 +23,16 @@ const BurgerWrapper = styled.div`
   width: 8vw;
 `
 function App() {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 1224px)",
-  })
-  const isBigScreen = useMediaQuery({ query: "(min-device-width: 1824px)" })
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" })
+  // const isDesktopOrLaptop = useMediaQuery({
+  //   query: "(min-device-width: 1224px)",
+  // })
+  // const isBigScreen = useMediaQuery({ query: "(min-device-width: 1824px)" })
+  // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" })
   const isTabletOrMobileDevice = useMediaQuery({
     query: "(max-device-width: 1224px)",
   })
-  const isPortrait = useMediaQuery({ query: "(orientation: portrait)" })
-  const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" })
+  // const isPortrait = useMediaQuery({ query: "(orientation: portrait)" })
+  // const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" })
 
   return (
     <div id="App">
@@ -41,17 +40,17 @@ function App() {
         <h1>Device Test!</h1>
         {isDesktopOrLaptop && (
           <>
-            <p>You are a desktop or laptop</p>
-            {isBigScreen && <p>You also have a huge screen</p>}
-            {isTabletOrMobile && (
-              <p>You are sized like a tablet or mobile phone though</p>
+          <p>You are a desktop or laptop</p>
+          {isBigScreen && <p>You also have a huge screen</p>}
+          {isTabletOrMobile && (
+            <p>You are sized like a tablet or mobile phone though</p>
             )}
-          </>
-        )}
-        {isTabletOrMobileDevice && <p>You are a tablet or mobile phone</p>}
-        <p>Your are in {isPortrait ? "portrait" : "landscape"} orientation</p>
-        {isRetina && <p>You are retina</p>}
-      </div> */}
+            </>
+            )}
+            {isTabletOrMobileDevice && <p>You are a tablet or mobile phone</p>}
+            <p>Your are in {isPortrait ? "portrait" : "landscape"} orientation</p>
+            {isRetina && <p>You are retina</p>}
+          </div> */}
       <BurgerWrapper>
         <SideBar
           pageWrapId={"page-wrap"}
@@ -79,6 +78,9 @@ function App() {
           </Route>{" "}
           <Route exact path="/synth/">
             <Synth />
+          </Route>
+          <Route exact path="/trails/">
+            <Trails />
           </Route>
         </Router>
       </main>

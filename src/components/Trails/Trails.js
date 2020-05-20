@@ -1,6 +1,7 @@
 import React from "react"
 import { useTrail, animated } from "react-spring"
-import "../styles.css"
+import "./trailStyles.css"
+import { Container } from "@material-ui/core"
 
 const items = ["item1", "item2", "item3", "item4", "item5", "item6"]
 
@@ -19,24 +20,26 @@ export default function Trails() {
   const trail = useSimpleTrail(toggle)
 
   return (
-    <div
-      style={{
-        backgroundColor: "tomato",
-        position: "relative",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      {trail.map(({ x, opacity }) => (
-        <animated.div
-          className="box"
-          onClick={() => setToggle((toggle) => !toggle)}
-          style={{
-            opacity,
-            transform: x.interpolate((x) => `translate3d(${x}%,0,0)`),
-          }}
-        />
-      ))}
-    </div>
+    <Container>
+      <div
+        style={{
+          backgroundColor: "tomato",
+          position: "relative",
+          width: "auto",
+          height: "100%",
+        }}
+      >
+        {trail.map(({ x, opacity }) => (
+          <animated.div
+            className="box"
+            onClick={() => setToggle((toggle) => !toggle)}
+            style={{
+              opacity,
+              transform: x.interpolate((x) => `translate3d(${x}%,0,0)`),
+            }}
+          />
+        ))}
+      </div>
+    </Container>
   )
 }
