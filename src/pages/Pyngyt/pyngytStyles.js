@@ -19,13 +19,13 @@ export const Tank = styled.div`
 export const BirthdayMan = styled.div`
   position: absolute;
   background-size: 590px;
-  top: 13vw;
+  top: 20vw;
   left: 5vw;
   width: 30%;
 `
 export const AlienMan = styled.div`
   position: absolute;
-  top: 26vw;
+  top: 29vw;
   left: 65vw;
   width: 20%;
 `

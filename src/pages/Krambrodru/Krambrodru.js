@@ -21,6 +21,7 @@ const BodyBefore = styled.div`
     padding-bottom: calc(2853 / 869 * 100%);
     background: url("http://www.tubbycreative.com/drawnwebsite/krambrodrubkgnd.png")
       center top / 100% auto no-repeat;
+    background-color: #b8ada3;
   }
 `
 export function Krambrodru() {

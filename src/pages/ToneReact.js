@@ -12,6 +12,7 @@ import PlayMP3 from "../components/PlayMP3"
 import SeekExample from "../components/SeekExample"
 import Arpeggio from "../components/Arpeggio"
 import PianoPoly from "../components/PianoPoly/PianoPoly"
+import { Container } from "@material-ui/core"
 
 export const App = () => {
   const sampler2 = useRef(null)
@@ -26,12 +27,12 @@ export const App = () => {
   //   sampler2.current.triggerAttackRelease("G4", 0.5, 2)
   // }
   return (
-    <div>
+    <Container>
       <PlayMP3 />
       <Arpeggio />
       <SeekExample />
       <PianoPoly />
       <ToneButtons />
-    </div>
+    </Container>
   )
 }

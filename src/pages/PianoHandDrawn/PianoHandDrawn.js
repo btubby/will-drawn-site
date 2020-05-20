@@ -2,13 +2,8 @@ import React, { useRef, useEffect, useState } from "react"
 import * as Tone from "tone"
 import ImageMapper from "react-image-mapper"
 
-import { useMediaQuery } from "react-responsive"
-
 import styled from "styled-components"
-
-const Container = styled.div`
-  border: 1px solid yellow;
-`
+import { Container } from "@material-ui/core"
 
 // https://dev.to/shimphillip/building-a-piano-with-tone-js-5c2f
 export const useMousePosition = () => {
@@ -26,18 +21,7 @@ export const useMousePosition = () => {
 export default function PianoHandDrawn() {
   const synth = useRef(null)
   // const polySynth = useRef(null)
-  const position = useMousePosition()
-
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 1224px)",
-  })
-  const isBigScreen = useMediaQuery({ query: "(min-device-width: 1824px)" })
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" })
-  const isTabletOrMobileDevice = useMediaQuery({
-    query: "(max-device-width: 1224px)",
-  })
-  const isPortrait = useMediaQuery({ query: "(orientation: portrait)" })
-  const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" })
+  // const position = useMousePosition()
 
   useEffect(() => {
     // synth.current = new Tone.Synth({

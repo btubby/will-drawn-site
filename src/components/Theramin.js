@@ -4,6 +4,7 @@ import Slider from "@material-ui/core/Slider"
 
 import styled from "styled-components"
 import "typeface-roboto"
+import { Container } from "@material-ui/core"
 // import { Typography } from "@material-ui/core"
 
 export const Typography = styled.div`
@@ -96,7 +97,7 @@ export default function Theramin() {
   }
 
   return (
-    <>
+    <Container>
       <Typography variant="h1" component="h2">
         Theramin.
       </Typography>
@@ -115,6 +116,6 @@ export default function Theramin() {
           valueLabelDisplay="auto"
         />
       </div>
-    </>
+    </Container>
   )
 }
