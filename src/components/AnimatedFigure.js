@@ -1,7 +1,7 @@
 import React from "react"
 import GifPlayer from "react-gif-player"
 import ReactHowler from "react-howler"
-import DefaultLoader from "../assets/loader.jpg"
+import DefaultLoader from "../assets/loader.png"
 
 //https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.js
 import raf from "raf" // requestAnimationFrame polyfill
@@ -22,7 +22,7 @@ export default class AnimatedFigure extends React.Component {
     this.setState({ sampleloading: false })
   }
   HowlerhandleOnEnd = () => {
-    // console.log("sample ended")
+    console.log("sample ended")
     if (!this.props.loop) {
       this.setState({ playing: false })
       console.log("gif pausing")
@@ -30,10 +30,11 @@ export default class AnimatedFigure extends React.Component {
     }
   }
   HowlerhandleOnPlay = () => {
+    console.log("HowlerhandleOnPlay")
     this.renderSeekPos()
   }
   renderSeekPos = () => {
-    this.setState({ seek: this.player.seek() })
+    this.setState({ seek: this.player.seek(0) })
     if (this.state.playing) {
       this._raf = raf(this.renderSeekPos)
     }
@@ -68,12 +69,12 @@ export default class AnimatedFigure extends React.Component {
       loop = true,
       playOnLoad = true,
       stillGifFrame,
-      volume = 1,
+      volume = 0.5,
       sample = "http://goldfirestudios.com/proj/howlerjs/sound.ogg",
     } = this.props
 
     return this.state.loading ? (
-      <div className="aninated-figure-loader-comtainer">
+      <div className="XX">
         <img id="aninated-figure-loader" alt="" src={loader} />
       </div>
     ) : (
@@ -86,9 +87,9 @@ export default class AnimatedFigure extends React.Component {
           loop={loop}
           preload={true}
           onLoad={this.HowlerhandleOnLoad}
-          onPlay={this.HowlerhandleOnPlay}
+          // onPlay={this.HowlerhandleOnPlay}
           // onStop={this.HowlerhandleOnStop}
-          onEnd={this.HowlerhandleOnEnd}
+          // onEnd={this.HowlerhandleOnEnd}
           ref={(ref) => (this.player = ref)}
         />
         <GifPlayer

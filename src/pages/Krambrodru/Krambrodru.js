@@ -1,40 +1,66 @@
 import React from "react"
-import styled from "styled-components"
 import AnimatedFigure from "../../components/AnimatedFigure"
+import { URLBase } from "../Pyngyt/Pyngyt"
+// @ts-ignore
+import uf1 from "../../audio/uf1.wav"
+// @ts-ignore
+import uf2 from "../../audio/uf2.wav"
+// @ts-ignore
+import uf3 from "../../audio/uf3.wav"
+// @ts-ignore
+import uf4 from "../../audio/uf4.wav"
+// @ts-ignore
+import uf5 from "../../audio/uf5.wav"
 
-const Figure = styled.div`
-  position: absolute;
-  top: 95vw;
-  left: 70vw;
-  width: 20%;
-`
+import { CowParsley, ArmMan, Planet, CMonster, Man } from "./Krambrodru.styles"
 
-const BodyBefore = styled.div`
-  &:after {
-    content: "";
-    display: block;
-    z-index: -1;
-    height: 0;
-    /* height / width = ratio% */
-    /* 2853px / 869px = 328.3084% */
-    padding-bottom: 328.3084%;
-    padding-bottom: calc(2853 / 869 * 100%);
-    background: url("http://www.tubbycreative.com/drawnwebsite/krambrodrubkgnd.png")
-      center top / 100% auto no-repeat;
-    background-color: #b8ada3;
-  }
-`
 export function Krambrodru() {
   return (
-    <BodyBefore>
-      <Figure>
-        <AnimatedFigure
-          stillGifFrame={
-            "http://www.tubbycreative.com/drawnwebsite/ecmwave.gif"
-          }
-          animatedGif={"http://www.tubbycreative.com/drawnwebsite/ecmwave.gif"}
-        />
-      </Figure>
-    </BodyBefore>
+    <div className="PbodyBackground">
+      <div className="KBackground">
+        <>
+          <ArmMan>
+            <AnimatedFigure
+              stillGifFrame={`${URLBase}armmanstill.png`}
+              animatedGif={`${URLBase}armmananim.png`}
+              sample={uf1}
+              loop={true}
+            />
+          </ArmMan>
+          <CowParsley>
+            <AnimatedFigure
+              stillGifFrame={`${URLBase}cowparsleystill.png`}
+              animatedGif={`${URLBase}cowparsleyanim.png`}
+              sample={uf2}
+              loop={true}
+            />
+          </CowParsley>
+          <Planet>
+            <AnimatedFigure
+              stillGifFrame={`${URLBase}planetstill.png`}
+              animatedGif={`${URLBase}planetanim.png`}
+              sample={uf3}
+              loop={true}
+            />
+          </Planet>
+          <CMonster>
+            <AnimatedFigure
+              stillGifFrame={`${URLBase}cmonsterstill.png`}
+              animatedGif={`${URLBase}cmonsteranim.png`}
+              sample={uf4}
+              loop={true}
+            />
+          </CMonster>
+          <Man>
+            <AnimatedFigure
+              stillGifFrame={`${URLBase}manstill.png`}
+              animatedGif={`${URLBase}mananim.png`}
+              sample={uf5}
+              loop={true}
+            />
+          </Man>
+        </>
+      </div>
+    </div>
   )
 }

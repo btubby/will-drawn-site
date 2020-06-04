@@ -1,11 +1,11 @@
 #root {
   height: 100vh;
 }
-.box {
+/* .box {
   cursor: pointer;
   position: relative;
   width: 50%;
   height: 20%;
-  background-color: #f3ffbd;
+  background-color: #fed134;
   will-change: transform;
-}
+} */

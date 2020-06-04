@@ -1,12 +1,13 @@
 import React from "react"
 import { fallDown as Menu } from "react-burger-menu"
-import styled from "styled-components"
 
-const Container = styled.div``
+import { Box } from "@material-ui/core"
+
 export default (props) => {
   return (
-    <Container>
+    <>
       <Menu {...props}>
+        {/* <div style={{ width: "100%" }}> */}
         <a className="menu-item" href="/">
           Pyngyt
         </a>
@@ -14,9 +15,6 @@ export default (props) => {
           KramBRODRU
         </a>
 
-        <a className="menu-item" href="/keys">
-          KEYS
-        </a>
         <a className="menu-item" href="/theramin">
           THERAMIN
         </a>
@@ -29,7 +27,17 @@ export default (props) => {
         <a className="menu-item" href="/trails">
           Trails
         </a>
+        <a className="menu-item" href="/seq">
+          STEP SEQUENCER
+        </a>
+        <a className="menu-item" href="/p5">
+          p5 experiments
+        </a>
+
+        {/* <button onClick={toggleTheme}>Dark Mode</button> */}
+        <Box display="flex" alignContent="flex-end" flexWrap="wrap"></Box>
+        {/* </div> */}
       </Menu>
-    </Container>
+    </>
   )
 }

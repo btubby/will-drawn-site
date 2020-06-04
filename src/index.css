@@ -7,11 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-  margin: 0;
-}
-
 #App {
   font-family: sans-serif;
 }
@@ -29,16 +24,11 @@ img {
   width: 100%;
 }
 
-html,
-body {
-  margin: 0;
-}
-
 #App {
   font-family: sans-serif;
 
   /* Give app full page to work with */
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 #page-wrap {

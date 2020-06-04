@@ -1,17 +1,19 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
-  background: url("../assets/burgermenu.png") no-repeat fixed;
   position: fixed;
   width: 10%;
   height: 30%;
   left: 0px;
   top: 0px;
-  background-size: 10vw;
-
-  /* background: yellow;
-  border: 8px solid yellow;
-  box-sizing: content-box; */
+  background: url("../assets/burgermenu.png") no-repeat fixed;
+  background-size: 8vw;
 }
+
+/* @media (prefers-color-scheme: dark) { */
+/* .bm-burger-button { */
+
+/* } */
+/* } */
 
 /* Color/shape of burger icon bars */
 /* .bm-burger-bars {

@@ -13,9 +13,9 @@ export default function Arpeggio() {
   const handleClick = () => {
     const pattern = new Tone.Pattern(
       function (time, note) {
-        synth.current.triggerAttackRelease(note, 0.25)
+        synth.current.triggerAttackRelease(note, "8n", time)
       },
-      ["C4", "D4", "E4", "G4", "A4"]
+      ["C4", "E4", "G4", "C5", "E5", "G5"]
     )
     // begin at the beginning
     pattern.start(0)

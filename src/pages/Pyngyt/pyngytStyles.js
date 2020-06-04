@@ -10,18 +10,27 @@ import styled from "styled-components"
 //     no-repeat center fixed;
 //   background-size: cover;
 // `
-export const Tank = styled.div`
-  position: absolute;
-  top: 50vw;
-  left: 20vw;
-  width: 20%;
+
+export const VolumeSlider = styled.div`
+  position: relative;
+  /* width: 20%; */
+  top: -168px;
+  left: 30px;
+  /* background: red; */
+  /* width: 60px; */
 `
-export const BirthdayMan = styled.div`
+
+export const PianoContainer = styled.div`
   position: absolute;
-  background-size: 590px;
-  top: 20vw;
-  left: 5vw;
-  width: 30%;
+  top: 80vw;
+  left: 0px;
+`
+
+export const BirthdayMan = styled.div`
+  position: relative;
+  top: 5.5vw;
+  left: -2vw;
+  width: 50%;
 `
 export const AlienMan = styled.div`
   position: absolute;
@@ -29,9 +38,15 @@ export const AlienMan = styled.div`
   left: 65vw;
   width: 20%;
 `
+export const Tank = styled.div`
+  position: absolute;
+  top: 51vw;
+  left: 13vw;
+  width: 40%;
+`
 export const EatCarMan = styled.div`
   position: absolute;
-  top: 65vw;
+  top: 63vw;
   left: 48vw;
   width: 40%;
 `

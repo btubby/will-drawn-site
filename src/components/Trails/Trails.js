@@ -1,7 +1,9 @@
 import React from "react"
 import { useTrail, animated } from "react-spring"
 import "./trailStyles.css"
-import { Container } from "@material-ui/core"
+import styled from "styled-components"
+
+import { GlobalStyles } from "../../global"
 
 const items = ["item1", "item2", "item3", "item4", "item5", "item6"]
 
@@ -14,16 +16,20 @@ const useSimpleTrail = (toggle) => {
     x: toggle ? 0 : 100,
   })
 }
-
+const MyContainer = styled.div`
+  display: block;
+  height: 1200px;
+`
 export default function Trails() {
   const [toggle, setToggle] = React.useState(true)
   const trail = useSimpleTrail(toggle)
 
   return (
-    <Container>
+    <MyContainer>
+      <GlobalStyles />
       <div
         style={{
-          backgroundColor: "tomato",
+          backgroundColor: "#666666",
           position: "relative",
           width: "auto",
           height: "100%",
@@ -31,7 +37,7 @@ export default function Trails() {
       >
         {trail.map(({ x, opacity }) => (
           <animated.div
-            className="box"
+            className="trails-box"
             onClick={() => setToggle((toggle) => !toggle)}
             style={{
               opacity,
@@ -40,6 +46,6 @@ export default function Trails() {
           />
         ))}
       </div>
-    </Container>
+    </MyContainer>
   )
 }
