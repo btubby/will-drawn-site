@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import AnimatedFigure from "../../components/AnimatedFigure"
 import {
   BirthdayMan,
@@ -6,8 +6,11 @@ import {
   Tank,
   EatCarMan,
   VolumeSlider,
+  Knobs,
 } from "./pyngytStyles"
 import { URLBase } from "./Pyngyt"
+import { Knob } from "react-rotary-knob"
+import * as skins from "react-rotary-knob-skin-pack"
 
 // @ts-ignore
 import Rita1 from "../../audio/rita1.wav"
@@ -19,83 +22,123 @@ import Rita3 from "../../audio/rita3.wav"
 import Rita4 from "../../audio/rita4.wav"
 import { Typography, makeStyles, withStyles } from "@material-ui/core"
 
-import Slider from "@material-ui/core/Slider"
-
 const useStyles = makeStyles({
   root: {
     height: 300,
   },
 })
 
-export default function () {
-  const [value, setValue] = React.useState(0.1)
+export default function (props) {
+  // console.log("CONTENT ", props.env)
+
+  useEffect(() => {
+    // console.log("toggle playstate")
+    // togglePlayState
+  })
+
+  // const [value, setValue] = React.useState(0.1)
+  const [BirthdayManknob, setBirthdayManKnob] = useState(0.5)
+  const [AlienManknob, setAlienManKnob] = useState(0.5)
+  const [TankKnob, setTankKnob] = useState(0.5)
+  const [EatCarManknob, setEatCarManKnob] = useState(0.5)
+
+  const [BirthdayManPlaying, setBirthdayManPlaying] = useState(false)
+
   const classes = useStyles()
 
-  const PrettoSlider = withStyles({
-    root: {
-      color: "#52af77",
-      height: 8,
-    },
-    // thumb: {
-    //   height: 24,
-    //   width: 24,
-    //   backgroundColor: "#fff",
-    //   border: "2px solid currentColor",
-    //   marginTop: -8,
-    //   marginLeft: -12,
-    //   "&:focus, &:hover, &$active": {
-    //     boxShadow: "inherit",
-    //   },
-    // },
-    // active: {},
-    // valueLabel: {
-    //   left: "calc(-50% + 4px)",
-    // },
-    track: {
-      height: 8,
-      borderRadius: 4,
-    },
-    rail: {
-      height: 8,
-      borderRadius: 4,
-    },
-  })(Slider)
+  //https://codesandbox.io/s/qvyyyvv346?file=/src/index.js:945-1126
+  const handleOnChangeKnob = (val, callback) => {
+    // toggle the figure play state
+    setBirthdayManPlaying(!BirthdayManPlaying)
 
+    // ignore change if distance is greater than defined
+    // here we use a distance of 200 because our max value is 1000
+    const maxDistance = 2
+    let distance = Math.abs(val - callback)
+    // console.log(`val= ${val} knob ${callback} distance ${distance}`)
+    if (val > maxDistance) {
+      return
+    } else {
+      callback(val)
+    }
+  }
+
+  const knobstyleDesktop = {
+    width: "20vw",
+    height: "20vh",
+  }
+
+  const knobstyleMobile = {
+    width: "10vw",
+    height: "10vh",
+  }
   return (
     <>
+      <Knobs>
+        {/* <Knob onChange={(val) => setKnob(val)} min={0} max={1} value={knob} /> */}
+        <Knob
+          // style={
+          //   props.env.isTabletOrMobileDevice
+          //     ? knobstyleDesktop
+          //     : knobstyleMobile
+          // }
+          skin={skins.s16}
+          // style={{ display: "inline-block" }}
+          min={0}
+          max={1}
+          // unlockDistance={0.5}
+          // preciseMode={true}
+          width={100}
+          height={100}
+          value={BirthdayManknob}
+          onChange={(e) => handleOnChangeKnob(e, setBirthdayManKnob)}
+        />
+        <Knob
+          // style={
+          //   props.env.isTabletOrMobileDevice
+          //     ? knobstyleDesktop
+          //     : knobstyleMobile
+          // }
+          skin={skins.s16}
+          min={0}
+          max={1}
+          width={100}
+          height={100}
+          value={AlienManknob}
+          onChange={(e) => handleOnChangeKnob(e, setAlienManKnob)}
+        />
+        <Knob
+          // style={
+          //   props.env.isTabletOrMobileDevice
+          //     ? knobstyleDesktop
+          //     : knobstyleMobile
+          // }
+          skin={skins.s16}
+          min={0}
+          max={1}
+          width={100}
+          height={100}
+          value={TankKnob}
+          onChange={(e) => handleOnChangeKnob(e, setTankKnob)}
+        />
+        <Knob
+          skin={skins.s16}
+          min={0}
+          max={1}
+          width={100}
+          height={100}
+          value={EatCarManknob}
+          onChange={setEatCarManKnob}
+        />
+      </Knobs>
       <BirthdayMan>
         <AnimatedFigure
           stillGifFrame={`${URLBase}bmanstill.png`}
           animatedGif={`${URLBase}bmananim.png`}
           sample={Rita1}
           loop={true}
-          volume={value}
+          volume={BirthdayManknob}
         />
-        <VolumeSlider>
-          {/* <Typography id="vertical-slider" gutterBottom>
-            VOLUME
-          </Typography> */}
-
-          <div className={classes.root}>
-            <Slider
-              // orientation="vertical"
-              onChange={(event, newValue) => {
-                console.log(`Slider change ${newValue}`)
-                setValue(newValue)
-                // setValue(newValue)
-                // benPlayerRef.current.seek(newValue)
-              }}
-              defaultValue={0.1}
-              // getAriaValueText={valuetext}
-              aria-labelledby="discrete-slider-small-steps"
-              step={0.1}
-              marks
-              min={0}
-              max={1}
-              valueLabelDisplay="auto"
-            />
-          </div>
-        </VolumeSlider>
       </BirthdayMan>
 
       <AlienMan>
@@ -104,7 +147,7 @@ export default function () {
           animatedGif={`${URLBase}amananim.png`}
           sample={Rita2}
           loop={true}
-          volume={1}
+          volume={AlienManknob}
         />
       </AlienMan>
       <Tank>
@@ -113,6 +156,7 @@ export default function () {
           animatedGif={`${URLBase}tankanim.png`}
           sample={Rita3}
           loop={true}
+          volume={TankKnob}
         />
       </Tank>
       <EatCarMan>
@@ -121,6 +165,7 @@ export default function () {
           animatedGif={`${URLBase}ecmanim.png`}
           sample={Rita4}
           loop={true}
+          volume={EatCarManknob}
         />
       </EatCarMan>
     </>

@@ -19,6 +19,15 @@ export const VolumeSlider = styled.div`
   /* background: red; */
   /* width: 60px; */
 `
+export const Knobs = styled.div`
+  display: flex;
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 70%;
+  top: 1%;
+  left: 11%;
+  justify-content: space-between;
+`
 
 export const PianoContainer = styled.div`
   position: absolute;
@@ -28,9 +37,9 @@ export const PianoContainer = styled.div`
 
 export const BirthdayMan = styled.div`
   position: relative;
-  top: 5.5vw;
-  left: -2vw;
-  width: 50%;
+  top: 12.5vw;
+  left: 1vw;
+  width: 40%;
 `
 export const AlienMan = styled.div`
   position: absolute;

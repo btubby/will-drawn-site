@@ -35,16 +35,16 @@ export const SwitchContainer = styled.div`
 `
 
 function App() {
-  // const isDesktopOrLaptop = useMediaQuery({
-  //   query: "(min-device-width: 1224px)",
-  // })
-  // const isBigScreen = useMediaQuery({ query: "(min-device-width: 1824px)" })
-  // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" })
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 1224px)",
+  })
+  const isBigScreen = useMediaQuery({ query: "(min-device-width: 1824px)" })
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" })
   const isTabletOrMobileDevice = useMediaQuery({
     query: "(max-device-width: 1224px)",
   })
-  // const isPortrait = useMediaQuery({ query: "(orientation: portrait)" })
-  // const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" })
+  const isPortrait = useMediaQuery({ query: "(orientation: portrait)" })
+  const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" })
 
   // let breakpoint = useMediaPredicate("(min-width: 600px)") ? "medium" : "small"
 
@@ -60,26 +60,22 @@ function App() {
       setTheme("light")
     }
   }
-
+  const env = {
+    isDesktopOrLaptop: isDesktopOrLaptop,
+    isTabletOrMobile: isTabletOrMobile,
+    isPortrait: isPortrait,
+    isRetina: isRetina,
+  }
+  console.log(`isDesktopOrLaptop: ${isDesktopOrLaptop}`)
+  console.log(`isBigScreen: ${isBigScreen}`)
+  console.log(`isTabletOrMobile: ${isTabletOrMobile}`)
+  console.log(`isPortrait: ${isPortrait}`)
+  console.log(`isRetina: ${isRetina}`)
   return (
     <ThemeProvider theme={theme === "light" ? darkTheme : lightTheme}>
       <div id="App">
         <GlobalStyles />
-        {/* <div>
-        <h1>Device Test!</h1>
-        {isDesktopOrLaptop && (
-          <>
-          <p>You are a desktop or laptop</p>
-          {isBigScreen && <p>You also have a huge screen</p>}
-          {isTabletOrMobile && (
-            <p>You are sized like a tablet or mobile phone though</p>
-            )}
-            </>
-            )}
-            {isTabletOrMobileDevice && <p>You are a tablet or mobile phone</p>}
-            <p>Your are in {isPortrait ? "portrait" : "landscape"} orientation</p>
-            {isRetina && <p>You are retina</p>}
-          </div> */}
+
         <BurgerWrapper>
           <SideBar
             pageWrapId={"page-wrap"}
@@ -92,7 +88,7 @@ function App() {
         <main id="page-wrap">
           <Router>
             <Route exact path="/">
-              <Pyngyt />
+              <Pyngyt env={env} />
             </Route>
 
             <Route exact path="/Krambrodru/">

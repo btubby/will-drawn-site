@@ -17,6 +17,11 @@ export default class AnimatedFigure extends React.Component {
     }
   }
 
+  togglePlayState = () => {
+    console.log(`toggle play state`)
+    this.state.playing = !this.state.playing
+  }
+
   HowlerhandleOnLoad = () => {
     console.log("sample loaded")
     this.setState({ sampleloading: false })
