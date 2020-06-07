@@ -5,7 +5,8 @@
   height: 30%;
   left: 0px;
   top: 0px;
-  background: url("../assets/burgermenu.png") no-repeat fixed;
+  background: url("http://www.tubbycreative.com/drawnwebsite/burgermenu.png")
+    no-repeat fixed;
   background-size: 8vw;
 }
 

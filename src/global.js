@@ -49,6 +49,9 @@ export const GlobalStyles = createGlobalStyle`
     filter: ${({ theme }) => theme.bmBurgerButton};
     -webkit-filter: ${({ theme }) => theme.bmBurgerButton};
   }
+
+
+
   .PBackground {
     content: "";
     display: block;
@@ -56,9 +59,37 @@ export const GlobalStyles = createGlobalStyle`
     height: 0;
     padding-bottom: 100%;
     background: #000 url("http://www.tubbycreative.com/drawnwebsite/pyngytbkgnd.png") center center / 100% auto no-repeat;
+
+    /* background-color
+background-image
+background-position
+background-size
+background-repeat
+background-origin
+background-clip
+background-attachment */
+
+
     background-attatchment: fixed;
 
   }
+  .PBackground2 {
+    content: "";
+    display: block;
+    z-index: -1;
+    height: 0;
+    padding-bottom: 100%;
+    /* background-attatchment: fixed; */
+    background-color: #000;
+    background-image: url("http://www.tubbycreative.com/drawnwebsite/pyngytbkgnd.png");
+    background-position:  center center / 100%;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+
+
+
 .KBackground {
   content: "";
     display: block;

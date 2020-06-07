@@ -24,7 +24,7 @@ export const Knobs = styled.div`
   position: absolute;
   /* border: 1px solid red; */
   width: 70%;
-  top: 1%;
+  top: 6%;
   left: 11%;
   justify-content: space-between;
 `
@@ -58,4 +58,10 @@ export const EatCarMan = styled.div`
   top: 63vw;
   left: 48vw;
   width: 40%;
+`
+export const Title = styled.div`
+  position: absolute;
+  top: -8px;
+  right: 25%;
+  width: 49vw;
 `

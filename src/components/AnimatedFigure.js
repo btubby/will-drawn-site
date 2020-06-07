@@ -11,7 +11,7 @@ export default class AnimatedFigure extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      playing: this.props.playOnLoad,
+      playing: this.props.playing,
       loading: false,
       sampleloading: true,
     }
@@ -54,11 +54,11 @@ export default class AnimatedFigure extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.playOnLoad !== nextProps.playOnLoad) {
+    if (this.props.playing !== nextProps.playing) {
       this.GifPlayerHandlePlayToggle()
 
       // FIXME THIS SHOULD BE CONDITIONAL
-      if (this.props.playOnLoad === false) {
+      if (this.props.playing === false) {
         this.pauseGif()
       } else {
         // play the damn gif
@@ -72,7 +72,7 @@ export default class AnimatedFigure extends React.Component {
       loader = DefaultLoader,
       animatedGif,
       loop = true,
-      playOnLoad = true,
+      playing = true,
       stillGifFrame,
       volume = 0.5,
       sample = "http://goldfirestudios.com/proj/howlerjs/sound.ogg",
@@ -110,7 +110,7 @@ export default class AnimatedFigure extends React.Component {
           width={this.props.width}
           onClick={this.GifPlayerHandlePlayToggle}
           pauseRef={(pause) => (this.pauseGif = pause)}
-          autoplay={playOnLoad}
+          autoplay={playing}
         />
       </div>
     )

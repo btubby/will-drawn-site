@@ -66,11 +66,7 @@ function App() {
     isPortrait: isPortrait,
     isRetina: isRetina,
   }
-  console.log(`isDesktopOrLaptop: ${isDesktopOrLaptop}`)
-  console.log(`isBigScreen: ${isBigScreen}`)
-  console.log(`isTabletOrMobile: ${isTabletOrMobile}`)
-  console.log(`isPortrait: ${isPortrait}`)
-  console.log(`isRetina: ${isRetina}`)
+
   return (
     <ThemeProvider theme={theme === "light" ? darkTheme : lightTheme}>
       <div id="App">

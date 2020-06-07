@@ -7,6 +7,7 @@ import {
   EatCarMan,
   VolumeSlider,
   Knobs,
+  Title,
 } from "./pyngytStyles"
 import { URLBase } from "./Pyngyt"
 import { Knob } from "react-rotary-knob"
@@ -43,14 +44,12 @@ export default function (props) {
   const [EatCarManknob, setEatCarManKnob] = useState(0.5)
 
   const [BirthdayManPlaying, setBirthdayManPlaying] = useState(false)
-
-  const classes = useStyles()
+  const [AlienManPlaying, setAlienManPlaying] = useState(false)
+  const [TankPlaying, setTankPlaying] = useState(false)
+  const [EatCarManPlaying, setEatCarManPlaying] = useState(false)
 
   //https://codesandbox.io/s/qvyyyvv346?file=/src/index.js:945-1126
   const handleOnChangeKnob = (val, callback) => {
-    // toggle the figure play state
-    setBirthdayManPlaying(!BirthdayManPlaying)
-
     // ignore change if distance is greater than defined
     // here we use a distance of 200 because our max value is 1000
     const maxDistance = 2
@@ -86,19 +85,13 @@ export default function (props) {
           // style={{ display: "inline-block" }}
           min={0}
           max={1}
-          // unlockDistance={0.5}
-          // preciseMode={true}
           width={100}
           height={100}
           value={BirthdayManknob}
           onChange={(e) => handleOnChangeKnob(e, setBirthdayManKnob)}
+          // onStart={() => setBirthdayManPlaying(!BirthdayManPlaying)}
         />
         <Knob
-          // style={
-          //   props.env.isTabletOrMobileDevice
-          //     ? knobstyleDesktop
-          //     : knobstyleMobile
-          // }
           skin={skins.s16}
           min={0}
           max={1}
@@ -106,13 +99,9 @@ export default function (props) {
           height={100}
           value={AlienManknob}
           onChange={(e) => handleOnChangeKnob(e, setAlienManKnob)}
+          // onStart={() => setAlienManPlaying(!AlienManPlaying)}
         />
         <Knob
-          // style={
-          //   props.env.isTabletOrMobileDevice
-          //     ? knobstyleDesktop
-          //     : knobstyleMobile
-          // }
           skin={skins.s16}
           min={0}
           max={1}
@@ -120,6 +109,7 @@ export default function (props) {
           height={100}
           value={TankKnob}
           onChange={(e) => handleOnChangeKnob(e, setTankKnob)}
+          // onStart={() => setTankPlaying(!TankPlaying)}
         />
         <Knob
           skin={skins.s16}
@@ -128,9 +118,15 @@ export default function (props) {
           width={100}
           height={100}
           value={EatCarManknob}
-          onChange={setEatCarManKnob}
+          onChange={(e) => handleOnChangeKnob(e, setEatCarManKnob)}
+          // onStart={() => setEatCarManPlaying(!EatCarManPlaying)}
         />
       </Knobs>
+
+      <Title>
+        <img src={`${URLBase}pyngyttextwhite.png`} />
+      </Title>
+
       <BirthdayMan>
         <AnimatedFigure
           stillGifFrame={`${URLBase}bmanstill.png`}
@@ -138,6 +134,7 @@ export default function (props) {
           sample={Rita1}
           loop={true}
           volume={BirthdayManknob}
+          playing={BirthdayManPlaying}
         />
       </BirthdayMan>
 
@@ -148,6 +145,7 @@ export default function (props) {
           sample={Rita2}
           loop={true}
           volume={AlienManknob}
+          playing={AlienManPlaying}
         />
       </AlienMan>
       <Tank>
@@ -157,6 +155,7 @@ export default function (props) {
           sample={Rita3}
           loop={true}
           volume={TankKnob}
+          playing={TankPlaying}
         />
       </Tank>
       <EatCarMan>
@@ -166,6 +165,7 @@ export default function (props) {
           sample={Rita4}
           loop={true}
           volume={EatCarManknob}
+          playing={EatCarManPlaying}
         />
       </EatCarMan>
     </>
