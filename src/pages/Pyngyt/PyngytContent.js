@@ -5,7 +5,6 @@ import {
   AlienMan,
   Tank,
   EatCarMan,
-  VolumeSlider,
   Knobs,
   Title,
 } from "./pyngytStyles"
@@ -21,13 +20,12 @@ import Rita2 from "../../audio/rita2.wav"
 import Rita3 from "../../audio/rita3.wav"
 // @ts-ignore
 import Rita4 from "../../audio/rita4.wav"
-import { Typography, makeStyles, withStyles } from "@material-ui/core"
 
-const useStyles = makeStyles({
-  root: {
-    height: 300,
-  },
-})
+// const useStyles = makeStyles({
+//   root: {
+//     height: 300,
+//   },
+// })
 
 export default function (props) {
   // console.log("CONTENT ", props.env)
@@ -43,17 +41,17 @@ export default function (props) {
   const [TankKnob, setTankKnob] = useState(0.5)
   const [EatCarManknob, setEatCarManKnob] = useState(0.5)
 
-  const [BirthdayManPlaying, setBirthdayManPlaying] = useState(false)
-  const [AlienManPlaying, setAlienManPlaying] = useState(false)
-  const [TankPlaying, setTankPlaying] = useState(false)
-  const [EatCarManPlaying, setEatCarManPlaying] = useState(false)
+  const [BirthdayManPlaying] = useState(false)
+  const [AlienManPlaying] = useState(false)
+  const [TankPlaying] = useState(false)
+  const [EatCarManPlaying] = useState(false)
 
   //https://codesandbox.io/s/qvyyyvv346?file=/src/index.js:945-1126
   const handleOnChangeKnob = (val, callback) => {
     // ignore change if distance is greater than defined
     // here we use a distance of 200 because our max value is 1000
     const maxDistance = 2
-    let distance = Math.abs(val - callback)
+    // let distance = Math.abs(val - callback)
     // console.log(`val= ${val} knob ${callback} distance ${distance}`)
     if (val > maxDistance) {
       return
@@ -62,15 +60,15 @@ export default function (props) {
     }
   }
 
-  const knobstyleDesktop = {
-    width: "20vw",
-    height: "20vh",
-  }
+  // const knobstyleDesktop = {
+  //   width: "20vw",
+  //   height: "20vh",
+  // }
 
-  const knobstyleMobile = {
-    width: "10vw",
-    height: "10vh",
-  }
+  // const knobstyleMobile = {
+  //   width: "10vw",
+  //   height: "10vh",
+  // }
   return (
     <>
       <Knobs>
@@ -124,7 +122,7 @@ export default function (props) {
       </Knobs>
 
       <Title>
-        <img src={`${URLBase}pyngyttextwhite.png`} />
+        <img alt="white" src={`${URLBase}pyngyttextwhite.png`} />
       </Title>
 
       <BirthdayMan>

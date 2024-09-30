@@ -9,16 +9,16 @@ export default (props) => {
       <Menu {...props}>
         {/* <div style={{ width: "100%" }}> */}
         <a className="menu-item" href="/">
-          <img src={"http://www.tubbycreative.com/drawnwebsite/world1.png"} />
+          <img alt="world1" src={"http://www.tubbycreative.com/drawnwebsite/world1.png"} />
         </a>
         <a className="menu-item" href="/krambrodru">
-          <img src={"http://www.tubbycreative.com/drawnwebsite/world2.png"} />
+          <img alt="world2" src={"http://www.tubbycreative.com/drawnwebsite/world2.png"} />
         </a>
         <a className="menu-item" href="/krambrodru">
-          <img src={"http://www.tubbycreative.com/drawnwebsite/world3.png"} />
+          <img alt="world3" src={"http://www.tubbycreative.com/drawnwebsite/world3.png"} />
         </a>
         <a className="menu-item" href="/krambrodru">
-          <img src={"http://www.tubbycreative.com/drawnwebsite/world4.png"} />
+          <img alt="world4" src={"http://www.tubbycreative.com/drawnwebsite/world4.png"} />
         </a>
         <a className="menu-item" href="/theramin">
           THERAMIN
